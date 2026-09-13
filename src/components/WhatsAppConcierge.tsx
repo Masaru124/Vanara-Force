@@ -8,35 +8,43 @@ interface WhatsAppConciergeProps {
 }
 
 export const WhatsAppConcierge: React.FC<WhatsAppConciergeProps> = ({ onOpenTrialModal }) => {
-  const [showTooltip, setShowTooltip] = useState(true);
+  // On mobile devices, default to false so it never obstructs screen or buttons
+  const [showTooltip, setShowTooltip] = useState(false);
+
+  const handleWhatsAppDirect = () => {
+    window.open(
+      "https://wa.me/919731444988?text=Hi%20Vanara%20Force%20Concierge,%20I'd%20like%20to%20inquire%20about%20membership%20at%20Prestige%20Falcon%20City.",
+      '_blank'
+    );
+  };
 
   return (
     <div
       style={{
         position: 'fixed',
-        bottom: '26px',
-        right: '26px',
+        bottom: '20px',
+        right: '20px',
         zIndex: 90,
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'flex-end',
       }}
     >
-      {/* Interactive Tooltip Card */}
+      {/* Interactive Tooltip Card - Desktop only */}
       {showTooltip && (
         <div
+          className="concierge-tooltip"
           style={{
             position: 'relative',
             marginBottom: '10px',
             padding: '14px 18px',
-            background: 'rgba(16, 18, 23, 0.95)',
+            background: 'rgba(16, 18, 23, 0.96)',
             backdropFilter: 'blur(16px)',
             WebkitBackdropFilter: 'blur(16px)',
             border: '1px solid rgba(255, 85, 0, 0.4)',
             borderRadius: '16px',
             boxShadow: '0 15px 35px rgba(0, 0, 0, 0.85)',
             maxWidth: '260px',
-            animation: 'float 3s ease-in-out infinite',
           }}
         >
           <button
@@ -58,7 +66,7 @@ export const WhatsAppConcierge: React.FC<WhatsAppConciergeProps> = ({ onOpenTria
           <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '4px' }}>
             <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#00FF88' }} />
             <span style={{ fontSize: '11px', fontWeight: 800, color: '#FF5500', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
-              VANARA CONCIERGE ONLINE
+              VANARA CONCIERGE
             </span>
           </div>
 
@@ -67,7 +75,7 @@ export const WhatsAppConcierge: React.FC<WhatsAppConciergeProps> = ({ onOpenTria
           </p>
 
           <button
-            onClick={onOpenTrialModal}
+            onClick={handleWhatsAppDirect}
             style={{
               marginTop: '8px',
               display: 'inline-flex',
@@ -83,7 +91,7 @@ export const WhatsAppConcierge: React.FC<WhatsAppConciergeProps> = ({ onOpenTria
               textTransform: 'uppercase',
             }}
           >
-            <span>Book Callback</span>
+            <span>Chat on WhatsApp</span>
             <ArrowUpRight size={13} />
           </button>
         </div>
@@ -91,41 +99,33 @@ export const WhatsAppConcierge: React.FC<WhatsAppConciergeProps> = ({ onOpenTria
 
       {/* Main Floating Trigger Button */}
       <button
-        onClick={onOpenTrialModal}
-        aria-label="Contact Vanara Force Concierge"
+        onClick={handleWhatsAppDirect}
+        aria-label="Chat with Vanara Force on WhatsApp"
         style={{
-          width: '56px',
-          height: '56px',
+          width: '52px',
+          height: '52px',
           borderRadius: '50%',
           background: 'linear-gradient(135deg, #FF6E1A 0%, #FF5500 100%)',
-          color: '#070709',
-          border: '2px solid rgba(255, 255, 255, 0.4)',
-          boxShadow: '0 8px 30px rgba(255, 85, 0, 0.65)',
+          color: '#050507',
+          border: 'none',
+          boxShadow: '0 8px 24px -4px rgba(255, 85, 0, 0.5), 0 4px 12px rgba(0, 0, 0, 0.6)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
           cursor: 'pointer',
           transition: 'all 200ms ease',
-          position: 'relative',
         }}
-        onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.08)')}
-        onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1.0)')}
       >
-        <MessageCircle size={28} />
-        {/* Unread Alert Ping Dot */}
-        <span
-          style={{
-            position: 'absolute',
-            top: '2px',
-            right: '2px',
-            width: '13px',
-            height: '13px',
-            borderRadius: '50%',
-            background: '#FFFFFF',
-            border: '2px solid #FF5500',
-          }}
-        />
+        <MessageCircle size={26} color="#050507" fill="#050507" />
       </button>
+
+      <style jsx>{`
+        @media (max-width: 767px) {
+          .concierge-tooltip {
+            display: none !important;
+          }
+        }
+      `}</style>
     </div>
   );
 };

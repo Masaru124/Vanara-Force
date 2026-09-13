@@ -34,28 +34,29 @@ export const Footer: React.FC = () => {
             <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '16px' }}>
               <div
                 style={{
-                  width: '42px',
-                  height: '42px',
-                  borderRadius: '10px',
-                  backgroundColor: '#0E0E0E',
+                  width: '54px',
+                  height: '38px',
+                  borderRadius: '9999px',
+                  backgroundColor: '#000000',
                   border: '1.5px solid rgba(255, 85, 0, 0.45)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
+                  overflow: 'hidden',
                   boxShadow: '0 8px 16px -4px rgba(255, 85, 0, 0.3)',
                   flexShrink: 0,
                 }}
               >
-                <svg viewBox="0 0 64 64" width="28" height="28">
-                  <defs>
-                    <linearGradient id="vf-foot-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#FF5500" />
-                      <stop offset="100%" stopColor="#D92C00" />
-                    </linearGradient>
-                  </defs>
-                  <path d="M16 18 L27 46 L37 46 L48 18 L38.5 18 L32 37.5 L25.5 18 Z" fill="url(#vf-foot-grad)" />
-                  <circle cx="32" cy="18" r="3.5" fill="#ECE9E1" />
-                </svg>
+                <img
+                  src="/qOk836sVt5WWyzXcy3Ek860og54.avif"
+                  alt="Vanara Force Emblem"
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    display: 'block',
+                  }}
+                />
               </div>
 
               <div style={{ display: 'flex', alignItems: 'baseline', gap: '6px', lineHeight: 1 }}>

@@ -156,21 +156,23 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenTrialModal }) =>
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+          className="hero-action-buttons"
           style={{
             display: 'flex',
             flexWrap: 'wrap',
             alignItems: 'center',
             justifyContent: 'center',
-            gap: '16px',
-            marginBottom: '60px',
+            gap: '14px',
+            marginBottom: '48px',
+            width: '100%',
           }}
         >
           <a
             href="#pricing"
-            className="btn-primary"
+            className="btn-primary hero-btn"
             style={{
-              padding: '18px 38px',
-              fontSize: '1rem',
+              padding: '16px 32px',
+              fontSize: '0.95rem',
             }}
           >
             <span>Explore Membership Plans</span>
@@ -179,10 +181,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenTrialModal }) =>
 
           <a
             href="#quiz"
-            className="btn-secondary"
+            className="btn-secondary hero-btn"
             style={{
-              padding: '18px 32px',
-              fontSize: '1rem',
+              padding: '16px 28px',
+              fontSize: '0.95rem',
             }}
           >
             <span>Personalized Plan Quiz</span>
@@ -192,17 +194,19 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenTrialModal }) =>
             href="https://wa.me/919731444988?text=Hi%20Coach%20Madhu,%20I'm%20interested%20in%20joining%20Vanara%20Force%20Falcon%20City!"
             target="_blank"
             rel="noopener noreferrer"
+            className="hero-btn"
             style={{
               display: 'inline-flex',
               alignItems: 'center',
+              justifyContent: 'center',
               gap: '8px',
-              padding: '18px 26px',
+              padding: '16px 24px',
               borderRadius: '9999px',
               backgroundColor: 'rgba(255, 255, 255, 0.05)',
               border: '1px solid rgba(255, 255, 255, 0.15)',
               color: '#ECE9E1',
               fontFamily: 'var(--font-heading)',
-              fontSize: '0.95rem',
+              fontSize: '0.92rem',
               fontWeight: 700,
               textDecoration: 'none',
               transition: 'all 200ms ease',
@@ -284,6 +288,20 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenTrialModal }) =>
           ))}
         </motion.div>
       </div>
+
+      <style jsx>{`
+        @media (max-width: 640px) {
+          :global(.hero-action-buttons) {
+            flex-direction: column !important;
+            max-width: 320px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+          }
+          :global(.hero-btn) {
+            width: 100% !important;
+          }
+        }
+      `}</style>
     </section>
   );
 };
