@@ -1,0 +1,427 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&family=Syne:wght@600;700;800;900&display=swap');
+
+:root {
+  /* ==========================================================
+     VANARA FORCE DESIGN SYSTEM | ORANGE, BLACK & WHITE
+     ========================================================== */
+  --vf-orange-primary: #FF5500;
+  --vf-orange-bright: #FF6A1A;
+  --vf-orange-deep: #D94400;
+  --vf-orange-amber: #FFA043;
+  --vf-orange-tint: rgba(255, 85, 0, 0.08);
+  --vf-orange-tint-med: rgba(255, 85, 0, 0.16);
+
+  /* Blacks & Darks */
+  --vf-black-void: #050507;
+  --vf-black-base: #0A0B0E;
+  --vf-black-surface: #101217;
+  --vf-black-elevated: #161820;
+  --vf-black-hover: #1D202B;
+  
+  /* Whites & Grays */
+  --vf-white-pure: #FFFFFF;
+  --vf-white-bright: #F7F8FA;
+  --vf-white-subtle: #E2E4E9;
+  --vf-white-muted: #9599A6;
+  --vf-white-dim: #606472;
+
+  /* Borders & Glass */
+  --vf-border-faint: rgba(255, 255, 255, 0.08);
+  --vf-border-medium: rgba(255, 255, 255, 0.14);
+  --vf-border-bright: rgba(255, 255, 255, 0.28);
+  --vf-border-orange: rgba(255, 85, 0, 0.4);
+  --vf-border-orange-bright: #FF5500;
+
+  /* Glass Surfaces */
+  --vf-glass-bg: rgba(13, 14, 18, 0.76);
+  --vf-glass-bg-heavy: rgba(8, 9, 11, 0.92);
+  --vf-glass-blur: blur(16px);
+  --vf-glass-blur-heavy: blur(28px);
+
+  /* Typography */
+  --font-display: 'Syne', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-heading: 'Archivo', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-body: 'Archivo', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Directional Elevation (No zero-offset colored halos) */
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 12px 28px -6px rgba(0, 0, 0, 0.7);
+  --shadow-lg: 0 24px 48px -12px rgba(0, 0, 0, 0.85);
+  --shadow-orange: 0 10px 24px -4px rgba(255, 85, 0, 0.35);
+  --shadow-orange-intense: 0 14px 32px -4px rgba(255, 85, 0, 0.5);
+
+  /* Radius */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 300ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 600ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ==========================================================
+   RESET & BASE STYLES
+   ========================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  caret-color: var(--vf-orange-primary);
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+  background-color: var(--vf-black-void);
+  overflow-x: clip;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--vf-black-void);
+  color: var(--vf-white-bright);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
+  position: relative;
+}
+
+/* Custom Themed Selection */
+::selection {
+  background: var(--vf-orange-primary);
+  color: #050507;
+}
+
+/* Accessible Themed Focus Rings */
+:focus-visible {
+  outline: 2px solid var(--vf-orange-primary);
+  outline-offset: 3px;
+}
+
+/* Tabular Numerals for Metrics and Pricing */
+.tabular-nums, [data-tabular], .stat-value, .price-value {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Custom Themed Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--vf-black-void);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #20222B;
+  border-radius: var(--radius-full);
+  border: 2px solid var(--vf-black-void);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--vf-orange-primary);
+}
+
+/* ==========================================================
+   TYPOGRAPHY SYSTEM
+   ========================================================== */
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.025em;
+  font-weight: 800;
+  color: var(--vf-white-pure);
+}
+
+h5, h6, .font-heading {
+  font-family: var(--font-heading);
+  letter-spacing: -0.015em;
+  font-weight: 700;
+}
+
+/* Solid high-contrast text replaces gradient text (Craft Floor requirement) */
+.text-gradient-orange {
+  color: var(--vf-orange-primary);
+}
+
+.text-gradient-flame {
+  color: var(--vf-orange-bright);
+}
+
+.text-orange {
+  color: var(--vf-orange-primary) !important;
+}
+
+.text-muted {
+  color: var(--vf-white-muted);
+}
+
+.text-white {
+  color: var(--vf-white-pure);
+}
+
+/* ==========================================================
+   LAYOUT CONTAINERS & UTILITIES
+   ========================================================== */
+.container {
+  width: 100%;
+  max-width: 1360px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(16px, 4vw, 40px);
+  padding-right: clamp(16px, 4vw, 40px);
+}
+
+.section-padding {
+  padding-top: clamp(60px, 8vw, 120px);
+  padding-bottom: clamp(60px, 8vw, 120px);
+}
+
+.section-header {
+  text-align: center;
+  max-width: 820px;
+  margin: 0 auto clamp(40px, 6vw, 70px) auto;
+}
+
+.badge-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  font-family: var(--font-heading);
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  border-radius: var(--radius-full);
+  background: var(--vf-orange-tint);
+  border: 1px solid var(--vf-border-orange);
+  color: var(--vf-orange-primary);
+  margin-bottom: 18px;
+}
+
+.badge-tag::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--vf-orange-primary);
+  box-shadow: 0 0 10px var(--vf-orange-primary);
+  animation: pulse-dot 1.8s infinite;
+}
+
+.section-title {
+  font-size: clamp(2rem, 4.5vw, 3.8rem);
+  line-height: 1.05;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.section-subtitle {
+  font-size: clamp(0.95rem, 1.2vw, 1.15rem);
+  color: var(--vf-white-muted);
+  line-height: 1.7;
+}
+
+/* ==========================================================
+   BUTTONS & CTAs
+   ========================================================== */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px 32px;
+  background: var(--vf-orange-primary);
+  color: var(--vf-black-void);
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--vf-orange-bright);
+  cursor: pointer;
+  transition: all var(--transition-smooth);
+  box-shadow: var(--shadow-orange);
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: all 0.5s ease;
+}
+
+.btn-primary:hover {
+  background: var(--vf-white-pure);
+  color: var(--vf-black-void);
+  border-color: var(--vf-white-pure);
+  box-shadow: 0 8px 30px rgba(255, 255, 255, 0.35);
+  transform: translateY(-2px);
+}
+
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px 30px;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--vf-white-pure);
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--vf-border-medium);
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition: all var(--transition-smooth);
+  text-decoration: none;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--vf-white-pure);
+  transform: translateY(-2px);
+}
+
+.btn-ghost-orange {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 22px;
+  background: transparent;
+  color: var(--vf-orange-primary);
+  border: 1px solid var(--vf-border-orange);
+  border-radius: var(--radius-full);
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+}
+
+.btn-ghost-orange:hover {
+  background: var(--vf-orange-primary);
+  color: var(--vf-black-void);
+  border-color: var(--vf-orange-primary);
+  box-shadow: var(--shadow-orange);
+}
+
+/* ==========================================================
+   CARDS & SURFACES
+   ========================================================== */
+.card-glass {
+  background: var(--vf-glass-bg);
+  backdrop-filter: var(--vf-glass-blur);
+  -webkit-backdrop-filter: var(--vf-glass-blur);
+  border: 1px solid var(--vf-border-faint);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+}
+
+.card-glass:hover {
+  border-color: var(--vf-border-orange);
+  transform: translateY(-3px);
+  box-shadow: 0 18px 36px -6px rgba(0, 0, 0, 0.75), 0 8px 16px -4px rgba(255, 85, 0, 0.2);
+}
+
+.card-black-elevated {
+  background: var(--vf-black-elevated);
+  border: 1px solid var(--vf-border-faint);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-smooth);
+}
+
+/* Ambient Ambient Glow Underlays */
+.ambient-glow-orange {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 85, 0, 0.14) 0%, rgba(255, 85, 0, 0) 70%);
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(50px);
+}
+
+/* ==========================================================
+   KEYFRAME ANIMATIONS
+   ========================================================== */
+@keyframes pulse-dot {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 1;
+    box-shadow: 0 0 14px var(--vf-orange-primary);
+  }
+  100% {
+    transform: scale(0.9);
+    opacity: 0.8;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes flame-shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Accessible reduced-motion support (UI/UX Pro Max) */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Touch targets and interactive accessibility */
+button, a, input, select, textarea {
+  touch-action: manipulation;
+}
