@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, ShieldCheck, Flame, ArrowRight, Sparkles } from 'lucide-react';
+import { X, ShieldCheck, Flame, ArrowRight, Sparkles, MessageCircle, PhoneCall, ExternalLink } from 'lucide-react';
 import { TrialLeadForm } from '../types';
 
 interface TrialModalProps {
@@ -30,15 +30,38 @@ export const TrialModal: React.FC<TrialModalProps> = ({
 
   if (!isOpen) return null;
 
+  const getWhatsAppUrl = () => {
+    const refId = `VF-${(formData.mobile || '7788').replace(/\D/g, '').slice(-4) || '9153'}`;
+    const message = `*VANARA FORCE | Sanctuary Consultation Request*
+*Ref ID:* ${refId}
+*Name:* ${formData.fullName || 'Athlete'}
+*WhatsApp Mobile:* ${formData.mobile || 'Not specified'}
+*Email:* ${formData.email || 'Not specified'}
+*Sanctuary:* ${formData.preferredHub}
+*Primary Objective:* ${formData.primaryGoal}
+${preselectedItem ? `*Inquiry Topic:* ${preselectedItem}\n` : ''}
+Hi Coach Madhu, I submitted my consultation request on the Vanara Force website. Please confirm my sanctuary appointment & orientation slot.`;
+
+    return `https://wa.me/919731444988?text=${encodeURIComponent(message)}`;
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
 
-    // Simulate concierge lead ingestion
+    const waUrl = getWhatsAppUrl();
+
+    // Direct dispatch to Coach Madhu on WhatsApp
+    try {
+      window.open(waUrl, '_blank');
+    } catch {
+      // Browser popup blocker fallback - user can click the direct button on confirmation
+    }
+
     setTimeout(() => {
       setIsLoading(false);
       setIsSubmitted(true);
-    }, 900);
+    }, 600);
   };
 
   const handleResetAndClose = () => {
@@ -112,7 +135,7 @@ export const TrialModal: React.FC<TrialModalProps> = ({
 
         {isSubmitted ? (
           /* Confirmation State */
-          <div style={{ textAlign: 'center', padding: '20px 0' }}>
+          <div style={{ textAlign: 'center', padding: '16px 0' }}>
             <div
               style={{
                 width: '64px',
@@ -123,7 +146,7 @@ export const TrialModal: React.FC<TrialModalProps> = ({
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                margin: '0 auto 20px auto',
+                margin: '0 auto 16px auto',
                 boxShadow: '0 8px 20px -4px rgba(255, 85, 0, 0.4)',
               }}
             >
@@ -131,7 +154,7 @@ export const TrialModal: React.FC<TrialModalProps> = ({
             </div>
 
             <div className="badge-tag" style={{ margin: '0 auto 12px auto' }}>
-              <span>CONSULTATION CONFIRMED &bull; ID: VF-{(formData.mobile || '7788').slice(-4)}</span>
+              <span>CONSULTATION CONFIRMED &bull; ID: VF-{(formData.mobile || '7788').replace(/\D/g, '').slice(-4) || '9153'}</span>
             </div>
 
             <h3
@@ -141,14 +164,14 @@ export const TrialModal: React.FC<TrialModalProps> = ({
                 fontWeight: 900,
                 color: '#FFFFFF',
                 textTransform: 'uppercase',
-                marginBottom: '12px',
+                marginBottom: '10px',
               }}
             >
               WELCOME TO THE FORCE
             </h3>
 
-            <p style={{ color: '#A2A6B4', fontSize: '14px', lineHeight: 1.6, marginBottom: '24px' }}>
-              Your consultation request has been registered for <strong style={{ color: '#FFFFFF' }}>{formData.fullName}</strong>. A dedicated Vanara Concierge will WhatsApp you within 15 minutes to coordinate your orientation and floor tour.
+            <p style={{ color: '#A2A6B4', fontSize: '14px', lineHeight: 1.6, marginBottom: '18px' }}>
+              Your consultation request has been registered for <strong style={{ color: '#FFFFFF' }}>{formData.fullName}</strong>. To immediately lock in your private orientation slot and bypass the queue, connect directly with Head Coach Madhu Gowda on WhatsApp.
             </p>
 
             <div
@@ -160,20 +183,81 @@ export const TrialModal: React.FC<TrialModalProps> = ({
                 textAlign: 'left',
                 fontSize: '12.5px',
                 color: '#D2D5E0',
-                marginBottom: '28px',
+                marginBottom: '20px',
               }}
             >
               <div><strong>Sanctuary:</strong> {formData.preferredHub}</div>
               <div style={{ marginTop: '4px' }}><strong>Primary Objective:</strong> {formData.primaryGoal}</div>
-              <div style={{ marginTop: '4px' }}><strong>Status:</strong> Priority Concierge Callback Scheduled</div>
+              <div style={{ marginTop: '4px' }}><strong>Direct Concierge:</strong> Coach Madhu Gowda (+91 97314 44988)</div>
+              <div style={{ marginTop: '4px' }}><strong>Status:</strong> Consultation Docket Ready</div>
             </div>
 
+            {/* Direct WhatsApp Action Button */}
+            <a
+              href={getWhatsAppUrl()}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '10px',
+                width: '100%',
+                padding: '15px 20px',
+                borderRadius: '12px',
+                background: 'linear-gradient(135deg, #FF6E1A 0%, #FF5500 100%)',
+                color: '#050507',
+                fontWeight: 900,
+                fontSize: '14px',
+                textTransform: 'uppercase',
+                textDecoration: 'none',
+                letterSpacing: '0.04em',
+                marginBottom: '10px',
+                boxShadow: '0 8px 24px -4px rgba(255, 85, 0, 0.45)',
+                transition: 'all 0.2s ease',
+              }}
+            >
+              <MessageCircle size={18} color="#050507" />
+              <span>Send Details to Coach on WhatsApp</span>
+              <ExternalLink size={15} color="#050507" />
+            </a>
+
+            {/* Direct Phone Call Alternative */}
+            <div style={{ marginBottom: '16px' }}>
+              <a
+                href="tel:+919731444988"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  color: '#FF5500',
+                  fontSize: '12.5px',
+                  fontWeight: 700,
+                  textDecoration: 'none',
+                }}
+              >
+                <PhoneCall size={13} />
+                <span>Or Call Direct: +91 97314 44988</span>
+              </a>
+            </div>
+
+            {/* Return to Sanctuary Button */}
             <button
               onClick={handleResetAndClose}
-              className="btn-primary"
-              style={{ width: '100%', padding: '14px' }}
+              style={{
+                width: '100%',
+                padding: '12px',
+                borderRadius: '10px',
+                background: 'rgba(255, 255, 255, 0.05)',
+                border: '1px solid rgba(255, 255, 255, 0.12)',
+                color: '#C5C8D4',
+                fontSize: '13px',
+                fontWeight: 700,
+                cursor: 'pointer',
+                transition: 'all 0.2s ease',
+              }}
             >
-              <span>Done &bull; Return to Sanctuary</span>
+              Done &bull; Return to Sanctuary
             </button>
           </div>
         ) : (
