@@ -369,31 +369,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenTrialModal }) => {
           </motion.div>
         )}
       </AnimatePresence>
-
-      <style jsx>{`
-        @media (min-width: 1024px) {
-          .desktop-nav {
-            display: flex !important;
-          }
-          .desktop-cta {
-            display: inline-flex !important;
-          }
-          .mobile-hamburger {
-            display: none !important;
-          }
-        }
-        @media (max-width: 1023px) {
-          .desktop-nav {
-            display: none !important;
-          }
-          .desktop-cta {
-            display: none !important;
-          }
-          .mobile-hamburger {
-            display: flex !important;
-          }
-        }
-      `}</style>
     </>
   );
 };

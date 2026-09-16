@@ -55,7 +55,7 @@ export const TransformationVault: React.FC<TransformationVaultProps> = ({ onOpen
               transition={{ duration: 0.3, ease: 'easeOut' }}
               style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
                 gap: '0',
               }}
             >
@@ -199,28 +199,28 @@ export const TransformationVault: React.FC<TransformationVaultProps> = ({ onOpen
                 <div
                   style={{
                     display: 'grid',
-                    gridTemplateColumns: 'repeat(3, 1fr)',
-                    gap: '12px',
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 90px), 1fr))',
+                    gap: '10px',
                     margin: '20px 0',
                   }}
                 >
-                  <div style={{ background: 'rgba(255, 255, 255, 0.03)', padding: '14px', borderRadius: '10px', textAlign: 'center' }}>
-                    <div style={{ fontSize: '11px', color: '#8E92A0', textTransform: 'uppercase', fontWeight: 700 }}>Total Weight</div>
-                    <div className="tabular-nums" style={{ fontFamily: 'var(--font-heading)', fontSize: '18px', fontWeight: 800, color: '#FF5500', marginTop: '4px' }}>
+                  <div style={{ background: 'rgba(255, 255, 255, 0.03)', padding: '10px 8px', borderRadius: '10px', textAlign: 'center' }}>
+                    <div style={{ fontSize: '10px', color: '#8E92A0', textTransform: 'uppercase', fontWeight: 700 }}>Total Weight</div>
+                    <div className="tabular-nums" style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(15px, 3vw, 18px)', fontWeight: 800, color: '#FF5500', marginTop: '4px' }}>
                       {story.stats.weightChange}
                     </div>
                   </div>
 
-                  <div style={{ background: 'rgba(255, 255, 255, 0.03)', padding: '14px', borderRadius: '10px', textAlign: 'center' }}>
-                    <div style={{ fontSize: '11px', color: '#8E92A0', textTransform: 'uppercase', fontWeight: 700 }}>Body Fat</div>
-                    <div className="tabular-nums" style={{ fontFamily: 'var(--font-heading)', fontSize: '18px', fontWeight: 800, color: '#FFFFFF', marginTop: '4px' }}>
+                  <div style={{ background: 'rgba(255, 255, 255, 0.03)', padding: '10px 8px', borderRadius: '10px', textAlign: 'center' }}>
+                    <div style={{ fontSize: '10px', color: '#8E92A0', textTransform: 'uppercase', fontWeight: 700 }}>Body Fat</div>
+                    <div className="tabular-nums" style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(15px, 3vw, 18px)', fontWeight: 800, color: '#FFFFFF', marginTop: '4px' }}>
                       {story.stats.bodyFatChange}
                     </div>
                   </div>
 
-                  <div style={{ background: 'rgba(255, 255, 255, 0.03)', padding: '14px', borderRadius: '10px', textAlign: 'center' }}>
-                    <div style={{ fontSize: '11px', color: '#8E92A0', textTransform: 'uppercase', fontWeight: 700 }}>Performance</div>
-                    <div className="tabular-nums" style={{ fontFamily: 'var(--font-heading)', fontSize: '14px', fontWeight: 800, color: '#FF5500', marginTop: '6px' }}>
+                  <div style={{ background: 'rgba(255, 255, 255, 0.03)', padding: '10px 8px', borderRadius: '10px', textAlign: 'center' }}>
+                    <div style={{ fontSize: '10px', color: '#8E92A0', textTransform: 'uppercase', fontWeight: 700 }}>Performance</div>
+                    <div className="tabular-nums" style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(13px, 2.5vw, 14px)', fontWeight: 800, color: '#FF5500', marginTop: '6px' }}>
                       {story.stats.strengthMetric}
                     </div>
                   </div>
@@ -229,9 +229,9 @@ export const TransformationVault: React.FC<TransformationVaultProps> = ({ onOpen
                 {/* Quote */}
                 <blockquote
                   style={{
-                    fontSize: '14px',
+                    fontSize: '13.5px',
                     color: '#C6C9D4',
-                    lineHeight: 1.65,
+                    lineHeight: 1.6,
                     fontStyle: 'italic',
                     marginBottom: '20px',
                     borderLeft: '2px solid #FF5500',
@@ -259,8 +259,8 @@ export const TransformationVault: React.FC<TransformationVaultProps> = ({ onOpen
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-            gap: '20px',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 220px), 1fr))',
+            gap: '18px',
           }}
         >
           {[

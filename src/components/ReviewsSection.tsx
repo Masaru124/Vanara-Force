@@ -20,13 +20,16 @@ export const ReviewsSection: React.FC = () => {
       <div className="container">
         <div style={{ textAlign: 'center', marginBottom: '60px' }}>
           <h2
+            className="section-title"
             style={{
               fontFamily: 'var(--font-display)',
-              fontSize: 'clamp(2rem, 4vw, 3.2rem)',
+              fontSize: 'clamp(1.45rem, 4vw, 3.2rem)',
               color: '#FFFFFF',
               fontWeight: 800,
               letterSpacing: '-0.02em',
               textTransform: 'uppercase',
+              overflowWrap: 'break-word',
+              wordBreak: 'break-word',
             }}
           >
             MEMBER <span style={{ color: '#FF5500' }}>EXPERIENCES</span>
@@ -47,8 +50,8 @@ export const ReviewsSection: React.FC = () => {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '24px',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
+            gap: '20px',
           }}
         >
           {REVIEWS_DATA.map((rev, idx) => (

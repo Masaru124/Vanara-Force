@@ -52,7 +52,8 @@ export const GroupXSchedule: React.FC<GroupXScheduleProps> = ({ onOpenTrialModal
               flexWrap: 'wrap',
               justifyContent: 'center',
               gap: '8px',
-              marginTop: '32px',
+              marginTop: '28px',
+              maxWidth: '100%',
             }}
           >
             {filterCategories.map((cat) => {
@@ -62,18 +63,19 @@ export const GroupXSchedule: React.FC<GroupXScheduleProps> = ({ onOpenTrialModal
                   key={cat.id}
                   onClick={() => setActiveCategory(cat.id)}
                   style={{
-                    padding: '8px 18px',
+                    padding: '8px 16px',
                     borderRadius: '9999px',
                     border: isActive ? '1px solid #FF5500' : '1px solid rgba(255, 255, 255, 0.1)',
                     background: isActive ? '#FF5500' : 'rgba(255, 255, 255, 0.04)',
                     color: isActive ? '#070709' : '#C2C5D0',
                     fontFamily: 'var(--font-heading)',
-                    fontSize: '12px',
+                    fontSize: '11.5px',
                     fontWeight: 800,
                     textTransform: 'uppercase',
                     letterSpacing: '0.06em',
                     cursor: 'pointer',
                     transition: 'all 200ms ease',
+                    whiteSpace: 'nowrap',
                   }}
                 >
                   {cat.label}
@@ -88,8 +90,8 @@ export const GroupXSchedule: React.FC<GroupXScheduleProps> = ({ onOpenTrialModal
           layout
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '24px',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
+            gap: '20px',
           }}
         >
           <AnimatePresence>

@@ -22,13 +22,15 @@ export const ContactSection: React.FC = () => {
           <h2
             style={{
               fontFamily: 'var(--font-display)',
-              fontSize: 'clamp(2.2rem, 4.5vw, 3.4rem)',
+              fontSize: 'clamp(1.4rem, 4.5vw, 3.4rem)',
               color: '#FFFFFF',
               fontWeight: 800,
               letterSpacing: '-0.02em',
               textTransform: 'uppercase',
               margin: '0 0 12px 0',
-              lineHeight: 1.05,
+              lineHeight: 1.1,
+              overflowWrap: 'break-word',
+              wordBreak: 'break-word',
             }}
           >
             PRESTIGE FALCON CITY &bull; <span style={{ color: '#FF5500' }}>LOCATION & CONTACT</span>
@@ -50,7 +52,7 @@ export const ContactSection: React.FC = () => {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
             gap: '36px',
             alignItems: 'stretch',
           }}
@@ -212,7 +214,7 @@ export const ContactSection: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-primary"
-                style={{ flex: 1, minWidth: '180px', padding: '14px 20px', justifyContent: 'center' }}
+                style={{ flex: '1 1 140px', padding: '14px 20px', justifyContent: 'center' }}
               >
                 <MessageSquare size={16} />
                 <span>Chat on WhatsApp</span>
@@ -223,6 +225,7 @@ export const ContactSection: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
+                  flex: '1 1 140px',
                   display: 'inline-flex',
                   alignItems: 'center',
                   justifyContent: 'center',

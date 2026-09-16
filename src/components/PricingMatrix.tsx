@@ -34,8 +34,8 @@ export const PricingMatrix: React.FC<PricingMatrixProps> = ({ onOpenTrialModal }
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-            gap: '24px',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 260px), 1fr))',
+            gap: '20px',
             alignItems: 'stretch',
             marginBottom: '48px',
           }}
@@ -64,38 +64,62 @@ export const PricingMatrix: React.FC<PricingMatrixProps> = ({ onOpenTrialModal }
                   borderRadius: '20px',
                 }}
               >
-                {/* Recommended Badge */}
-                {isRec && (
-                  <div
+                {/* Header Row with Optional Recommended Badge */}
+                <div
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    minHeight: '26px',
+                    marginBottom: '10px',
+                    gap: '8px',
+                  }}
+                >
+                  <span
                     style={{
-                      position: 'absolute',
-                      top: '-12px',
-                      left: '50%',
-                      transform: 'translateX(-50%)',
-                      padding: '4px 16px',
-                      borderRadius: '9999px',
-                      backgroundColor: '#FF5500',
-                      color: '#050507',
                       fontSize: '11px',
                       fontFamily: 'var(--font-heading)',
-                      fontWeight: 900,
+                      fontWeight: 800,
+                      color: isRec ? '#FF5500' : 'rgba(236, 233, 225, 0.45)',
                       letterSpacing: '0.08em',
                       textTransform: 'uppercase',
-                      boxShadow: '0 6px 16px -2px rgba(255, 85, 0, 0.45)',
                     }}
                   >
-                    MOST POPULAR
-                  </div>
-                )}
+                    {isRec ? 'RECOMMENDED' : 'MEMBERSHIP'}
+                  </span>
+
+                  {isRec && (
+                    <span
+                      style={{
+                        display: 'inline-block',
+                        padding: '4px 12px',
+                        borderRadius: '9999px',
+                        backgroundColor: '#FF5500',
+                        color: '#050507',
+                        fontSize: '10.5px',
+                        fontFamily: 'var(--font-heading)',
+                        fontWeight: 900,
+                        letterSpacing: '0.08em',
+                        textTransform: 'uppercase',
+                        whiteSpace: 'nowrap',
+                        boxShadow: '0 4px 14px -2px rgba(255, 85, 0, 0.5)',
+                      }}
+                    >
+                      MOST POPULAR
+                    </span>
+                  )}
+                </div>
 
                 <div style={{ marginBottom: '16px' }}>
                   <h3
                     style={{
                       fontFamily: 'var(--font-heading)',
-                      fontSize: '20px',
+                      fontSize: '22px',
                       fontWeight: 800,
                       color: '#ECE9E1',
                       letterSpacing: '-0.01em',
+                      lineHeight: 1.25,
+                      margin: 0,
                     }}
                   >
                     {tier.name}

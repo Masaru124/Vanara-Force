@@ -41,8 +41,8 @@ export const ArenaGrid: React.FC<ArenaGridProps> = ({ onOpenTrialModal }) => {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-            gap: '20px',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 260px), 1fr))',
+            gap: '16px',
             marginBottom: '36px',
           }}
         >
@@ -55,7 +55,7 @@ export const ArenaGrid: React.FC<ArenaGridProps> = ({ onOpenTrialModal }) => {
                 whileHover={{ y: -4 }}
                 transition={{ duration: 0.2 }}
                 style={{
-                  padding: '24px',
+                  padding: '20px',
                   cursor: 'pointer',
                   borderColor: isSelected ? '#FF5500' : 'rgba(255, 255, 255, 0.08)',
                   background: isSelected ? 'rgba(255, 85, 0, 0.12)' : 'rgba(16, 18, 23, 0.7)',
@@ -123,7 +123,7 @@ export const ArenaGrid: React.FC<ArenaGridProps> = ({ onOpenTrialModal }) => {
             className="card-glass"
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
               overflow: 'hidden',
               border: '1px solid rgba(255, 85, 0, 0.35)',
               boxShadow: '0 24px 48px -12px rgba(0, 0, 0, 0.85), 0 8px 16px -4px rgba(255, 85, 0, 0.2)',
@@ -133,7 +133,7 @@ export const ArenaGrid: React.FC<ArenaGridProps> = ({ onOpenTrialModal }) => {
             <div
               style={{
                 position: 'relative',
-                minHeight: '380px',
+                minHeight: 'clamp(240px, 35vw, 380px)',
                 backgroundImage: `linear-gradient(180deg, rgba(7, 7, 9, 0.1) 0%, rgba(7, 7, 9, 0.9) 100%), url(${selectedZone.image})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',

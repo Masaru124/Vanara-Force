@@ -24,6 +24,9 @@ export const PhilosophySplit: React.FC = () => {
           <div
             style={{
               display: 'inline-flex',
+              flexWrap: 'wrap',
+              justifyContent: 'center',
+              maxWidth: '100%',
               padding: '6px',
               background: '#13151B',
               borderRadius: '9999px',
@@ -38,13 +41,13 @@ export const PhilosophySplit: React.FC = () => {
                 display: 'flex',
                 alignItems: 'center',
                 gap: '8px',
-                padding: '12px 28px',
+                padding: '10px clamp(14px, 3vw, 24px)',
                 borderRadius: '9999px',
                 border: 'none',
                 background: activeTab === 'training' ? '#FF5500' : 'transparent',
                 color: activeTab === 'training' ? '#070709' : '#FFFFFF',
                 fontFamily: 'var(--font-heading)',
-                fontSize: '13px',
+                fontSize: '12.5px',
                 fontWeight: 800,
                 textTransform: 'uppercase',
                 letterSpacing: '0.06em',
@@ -52,7 +55,7 @@ export const PhilosophySplit: React.FC = () => {
                 transition: 'all 200ms ease',
               }}
             >
-              <Dumbbell size={16} />
+              <Dumbbell size={15} />
               <span>Pillar I: Primal Force</span>
             </button>
 
@@ -62,13 +65,13 @@ export const PhilosophySplit: React.FC = () => {
                 display: 'flex',
                 alignItems: 'center',
                 gap: '8px',
-                padding: '12px 28px',
+                padding: '10px clamp(14px, 3vw, 24px)',
                 borderRadius: '9999px',
                 border: 'none',
                 background: activeTab === 'recovery' ? '#FFFFFF' : 'transparent',
                 color: activeTab === 'recovery' ? '#070709' : '#FFFFFF',
                 fontFamily: 'var(--font-heading)',
-                fontSize: '13px',
+                fontSize: '12.5px',
                 fontWeight: 800,
                 textTransform: 'uppercase',
                 letterSpacing: '0.06em',
@@ -76,7 +79,7 @@ export const PhilosophySplit: React.FC = () => {
                 transition: 'all 200ms ease',
               }}
             >
-              <Droplets size={16} />
+              <Droplets size={15} />
               <span>Pillar II: Bio-Recovery</span>
             </button>
           </div>
@@ -86,8 +89,8 @@ export const PhilosophySplit: React.FC = () => {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '24px',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
+            gap: '20px',
             alignItems: 'stretch',
           }}
         >
@@ -139,11 +142,14 @@ export const PhilosophySplit: React.FC = () => {
             <h3
               style={{
                 fontFamily: 'var(--font-display)',
-                fontSize: '28px',
+                fontSize: 'clamp(1.3rem, 3.5vw, 1.75rem)',
                 fontWeight: 900,
                 color: '#FFFFFF',
                 textTransform: 'uppercase',
                 marginBottom: '14px',
+                lineHeight: 1.15,
+                overflowWrap: 'break-word',
+                wordBreak: 'break-word',
               }}
             >
               PRIMAL STRENGTH & BIOMECHANICS
@@ -220,11 +226,14 @@ export const PhilosophySplit: React.FC = () => {
             <h3
               style={{
                 fontFamily: 'var(--font-display)',
-                fontSize: '28px',
+                fontSize: 'clamp(1.3rem, 3.5vw, 1.75rem)',
                 fontWeight: 900,
                 color: '#FFFFFF',
                 textTransform: 'uppercase',
                 marginBottom: '14px',
+                lineHeight: 1.15,
+                overflowWrap: 'break-word',
+                wordBreak: 'break-word',
               }}
             >
               HOLISTIC BIO-RECOVERY SUITES

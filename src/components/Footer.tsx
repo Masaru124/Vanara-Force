@@ -24,7 +24,7 @@ export const Footer: React.FC = () => {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 200px), 1fr))',
             gap: '40px',
             marginBottom: '60px',
           }}
@@ -234,7 +234,7 @@ export const Footer: React.FC = () => {
             &copy; {new Date().getFullYear()} VANARA FORCE. All rights reserved.
           </div>
 
-          <div style={{ display: 'flex', gap: '20px' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px 16px' }}>
             <span style={{ cursor: 'pointer' }}>Privacy Policy</span>
             <span style={{ cursor: 'pointer' }}>Terms & Medical Disclaimer</span>
             <span style={{ cursor: 'pointer' }}>TCPA Compliance</span>

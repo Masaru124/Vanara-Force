@@ -81,7 +81,7 @@ Hi Coach Madhu, I submitted my consultation request on the Vanara Force website.
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: '20px',
+        padding: 'clamp(10px, 3vw, 20px)',
         backgroundColor: 'rgba(5, 5, 7, 0.88)',
         backdropFilter: 'blur(16px)',
         WebkitBackdropFilter: 'blur(16px)',
@@ -104,7 +104,7 @@ Hi Coach Madhu, I submitted my consultation request on the Vanara Force website.
           background: '#0D0E13',
           border: '1px solid rgba(255, 85, 0, 0.45)',
           borderRadius: '24px',
-          padding: 'clamp(24px, 4vw, 36px)',
+          padding: 'clamp(18px, 4vw, 36px)',
           boxShadow: '0 28px 64px -12px rgba(0, 0, 0, 0.95), 0 10px 24px -4px rgba(255, 85, 0, 0.3)',
           position: 'relative',
         }}
@@ -153,7 +153,7 @@ Hi Coach Madhu, I submitted my consultation request on the Vanara Force website.
               <Sparkles size={32} color="#FF5500" />
             </div>
 
-            <div className="badge-tag" style={{ margin: '0 auto 12px auto' }}>
+            <div className="badge-tag" style={{ margin: '0 auto 12px auto', whiteSpace: 'normal', textAlign: 'center', wordBreak: 'break-word', maxWidth: '100%' }}>
               <span>CONSULTATION CONFIRMED &bull; ID: VF-{(formData.mobile || '7788').replace(/\D/g, '').slice(-4) || '9153'}</span>
             </div>
 
@@ -306,7 +306,7 @@ Hi Coach Madhu, I submitted my consultation request on the Vanara Force website.
                 />
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 200px), 1fr))', gap: '12px' }}>
                 <div>
                   <label style={{ display: 'block', fontSize: '12px', fontWeight: 700, color: '#C5C8D4', marginBottom: '6px' }}>
                     WhatsApp Mobile Number *

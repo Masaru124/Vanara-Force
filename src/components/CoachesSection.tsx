@@ -35,13 +35,15 @@ export const CoachesSection: React.FC<CoachesSectionProps> = ({ onOpenTrialModal
               <h2
                 style={{
                   fontFamily: 'var(--font-display)',
-                  fontSize: 'clamp(2.2rem, 4.5vw, 3.6rem)',
+                  fontSize: 'clamp(1.4rem, 4.5vw, 3.6rem)',
                   color: '#FFFFFF',
                   fontWeight: 800,
                   letterSpacing: '-0.02em',
                   textTransform: 'uppercase',
                   margin: 0,
-                  lineHeight: 1.05,
+                  lineHeight: 1.1,
+                  overflowWrap: 'break-word',
+                  wordBreak: 'break-word',
                 }}
               >
                 COACHES & <span style={{ color: '#FF5500' }}>TRAINERS</span>
@@ -66,8 +68,8 @@ export const CoachesSection: React.FC<CoachesSectionProps> = ({ onOpenTrialModal
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-            gap: '28px',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
+            gap: '20px',
           }}
         >
           {COACHES_DATA.map((coach, idx) => {
@@ -100,7 +102,7 @@ export const CoachesSection: React.FC<CoachesSectionProps> = ({ onOpenTrialModal
                 <div
                   style={{
                     position: 'relative',
-                    height: '320px',
+                    height: 'clamp(240px, 35vw, 320px)',
                     width: '100%',
                     backgroundColor: '#15161C',
                     overflow: 'hidden',

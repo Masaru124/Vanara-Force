@@ -118,14 +118,6 @@ export const WhatsAppConcierge: React.FC<WhatsAppConciergeProps> = ({ onOpenTria
       >
         <MessageCircle size={26} color="#050507" fill="#050507" />
       </button>
-
-      <style jsx>{`
-        @media (max-width: 767px) {
-          .concierge-tooltip {
-            display: none !important;
-          }
-        }
-      `}</style>
     </div>
   );
 };

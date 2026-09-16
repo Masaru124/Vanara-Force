@@ -68,13 +68,15 @@ Hi Coach Madhu, I completed the assessment on the Vanara Force website. Please s
           <h2
             style={{
               fontFamily: 'var(--font-display)',
-              fontSize: 'clamp(2.2rem, 4.5vw, 3.4rem)',
+              fontSize: 'clamp(1.4rem, 4.5vw, 3.4rem)',
               color: '#FFFFFF',
               fontWeight: 800,
               letterSpacing: '-0.02em',
               textTransform: 'uppercase',
               margin: '0 0 12px 0',
-              lineHeight: 1.05,
+              lineHeight: 1.1,
+              overflowWrap: 'break-word',
+              wordBreak: 'break-word',
             }}
           >
             GET YOUR <span style={{ color: '#FF5500' }}>PERSONALIZED PLAN</span>
@@ -167,7 +169,7 @@ Hi Coach Madhu, I completed the assessment on the Vanara Force website. Please s
                   >
                     What is your primary physical objective?
                   </h3>
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '14px', marginBottom: '32px' }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 220px), 1fr))', gap: '14px', marginBottom: '32px' }}>
                     {goals.map((g) => (
                       <button
                         key={g}
@@ -191,7 +193,7 @@ Hi Coach Madhu, I completed the assessment on the Vanara Force website. Please s
                       </button>
                     ))}
                   </div>
-                  <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+                  <div style={{ display: 'flex', justifyContent: 'flex-end', flexWrap: 'wrap', gap: '12px' }}>
                     <button
                       type="button"
                       onClick={() => setCurrentStep(2)}
@@ -219,7 +221,7 @@ Hi Coach Madhu, I completed the assessment on the Vanara Force website. Please s
                   >
                     What is your current training experience level?
                   </h3>
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '14px', marginBottom: '32px' }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 220px), 1fr))', gap: '14px', marginBottom: '32px' }}>
                     {experienceLevels.map((exp) => (
                       <button
                         key={exp}
@@ -242,7 +244,7 @@ Hi Coach Madhu, I completed the assessment on the Vanara Force website. Please s
                       </button>
                     ))}
                   </div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px' }}>
                     <button
                       type="button"
                       onClick={() => setCurrentStep(1)}
@@ -284,7 +286,7 @@ Hi Coach Madhu, I completed the assessment on the Vanara Force website. Please s
                   >
                     How many days per week can you dedicate?
                   </h3>
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '14px', marginBottom: '32px' }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 220px), 1fr))', gap: '14px', marginBottom: '32px' }}>
                     {schedules.map((s) => (
                       <button
                         key={s}
@@ -307,7 +309,7 @@ Hi Coach Madhu, I completed the assessment on the Vanara Force website. Please s
                       </button>
                     ))}
                   </div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px' }}>
                     <button
                       type="button"
                       onClick={() => setCurrentStep(2)}
@@ -403,7 +405,7 @@ Hi Coach Madhu, I completed the assessment on the Vanara Force website. Please s
                     </div>
                   </div>
 
-                  <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px' }}>
                     <button
                       type="button"
                       onClick={() => setCurrentStep(3)}

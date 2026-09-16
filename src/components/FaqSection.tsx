@@ -37,13 +37,15 @@ export const FaqSection: React.FC = () => {
           <h2
             style={{
               fontFamily: 'var(--font-display)',
-              fontSize: 'clamp(2.2rem, 4.5vw, 3.4rem)',
+              fontSize: 'clamp(1.4rem, 4.5vw, 3.4rem)',
               color: '#FFFFFF',
               fontWeight: 800,
               letterSpacing: '-0.02em',
               textTransform: 'uppercase',
               margin: '0 0 12px 0',
-              lineHeight: 1.05,
+              lineHeight: 1.1,
+              overflowWrap: 'break-word',
+              wordBreak: 'break-word',
             }}
           >
             FREQUENTLY ASKED <span style={{ color: '#FF5500' }}>QUESTIONS</span>
@@ -116,7 +118,7 @@ export const FaqSection: React.FC = () => {
                   style={{
                     width: '100%',
                     textAlign: 'left',
-                    padding: '22px 26px',
+                    padding: 'clamp(16px, 4vw, 22px) clamp(16px, 4vw, 26px)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
@@ -129,7 +131,7 @@ export const FaqSection: React.FC = () => {
                   <span
                     style={{
                       fontFamily: 'var(--font-heading)',
-                      fontSize: '16.5px',
+                      fontSize: 'clamp(14.5px, 3.5vw, 16.5px)',
                       fontWeight: 800,
                       color: isOpen ? '#FF5500' : '#ECE9E1',
                       letterSpacing: '0.01em',
@@ -161,7 +163,7 @@ export const FaqSection: React.FC = () => {
                     >
                       <div
                         style={{
-                          padding: '0 26px 24px 26px',
+                          padding: '0 clamp(16px, 4vw, 26px) clamp(16px, 4vw, 24px) clamp(16px, 4vw, 26px)',
                           borderTop: '1px solid rgba(255, 255, 255, 0.05)',
                           paddingTop: '16px',
                         }}

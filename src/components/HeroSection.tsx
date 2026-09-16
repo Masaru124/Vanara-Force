@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Flame } from 'lucide-react';
+import { Mascot } from './Mascot';
 
 interface HeroSectionProps {
   onOpenTrialModal: () => void;
@@ -54,6 +55,41 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenTrialModal }) =>
           alignItems: 'center',
         }}
       >
+        {/* Cursor-Tracking Interactive Fox Mascot */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8, y: -20 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            marginBottom: '12px',
+            position: 'relative',
+            cursor: 'pointer',
+          }}
+        >
+          <Mascot
+            directions="/mascots/fox-directions.webp"
+            reactions="/mascots/fox-reactions.webp"
+            size={110}
+            label="Fox"
+          />
+          <span
+            style={{
+              marginTop: '4px',
+              fontSize: '0.7rem',
+              letterSpacing: '0.12em',
+              textTransform: 'uppercase',
+              color: 'rgba(236, 233, 225, 0.5)',
+              fontWeight: 600,
+              pointerEvents: 'none',
+            }}
+          >
+            Boop me!
+          </span>
+        </motion.div>
+
         {/* Prestige Falcon City Location Chip with Motion Reveal */}
         <motion.div
           initial={{ opacity: 0, y: -16 }}
@@ -63,10 +99,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenTrialModal }) =>
           style={{
             background: 'rgba(255, 85, 0, 0.12)',
             borderColor: 'rgba(255, 85, 0, 0.45)',
-            marginBottom: '24px',
+            marginBottom: '20px',
+            fontSize: 'clamp(9px, 2.5vw, 11px)',
+            maxWidth: '100%',
+            whiteSpace: 'normal',
+            textAlign: 'center',
           }}
         >
-          <Flame size={14} color="#FF5500" />
+          <Flame size={14} color="#FF5500" style={{ flexShrink: 0 }} />
           <span>PRESTIGE FALCON CITY &bull; BANGALORE</span>
         </motion.div>
 
@@ -80,20 +120,22 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenTrialModal }) =>
             flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'center',
-            marginBottom: '16px',
+            marginBottom: '14px',
             userSelect: 'none',
+            width: '100%',
           }}
         >
           <span
             style={{
               fontFamily: "'Playfair Display', Georgia, serif",
-              fontSize: 'clamp(3.5rem, 11vw, 8.8rem)',
+              fontSize: 'clamp(2.4rem, 10vw, 8.8rem)',
               fontWeight: 900,
               textTransform: 'uppercase',
-              letterSpacing: '0.04em',
+              letterSpacing: '0.03em',
               color: '#ECE9E1',
               lineHeight: 0.9,
               textShadow: '0 12px 32px rgba(0, 0, 0, 0.9)',
+              wordBreak: 'break-word',
             }}
           >
             VANARA
@@ -103,10 +145,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenTrialModal }) =>
               fontFamily: "'Playfair Display', Georgia, serif",
               fontStyle: 'italic',
               fontWeight: 700,
-              fontSize: 'clamp(3.5rem, 12vw, 9.6rem)',
+              fontSize: 'clamp(2.5rem, 11vw, 9.6rem)',
               color: '#FF5500',
               lineHeight: 0.82,
-              marginTop: 'clamp(-12px, -3vw, -28px)',
+              marginTop: 'clamp(-8px, -2.5vw, -28px)',
               textTransform: 'lowercase',
               letterSpacing: '-0.02em',
             }}
@@ -225,9 +267,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenTrialModal }) =>
             width: '100%',
             maxWidth: '1100px',
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-            gap: '16px',
-            padding: '24px 30px',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 190px), 1fr))',
+            gap: '12px',
+            padding: 'clamp(16px, 3vw, 24px) clamp(16px, 3vw, 28px)',
             background: 'rgba(14, 15, 18, 0.92)',
             backdropFilter: 'blur(20px)',
             WebkitBackdropFilter: 'blur(20px)',
@@ -248,14 +290,16 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenTrialModal }) =>
               transition={{ duration: 0.2 }}
               style={{
                 textAlign: 'left',
-                borderLeft: index > 0 ? '1px solid rgba(255, 255, 255, 0.1)' : 'none',
-                paddingLeft: index > 0 ? '20px' : '0',
+                padding: '10px 14px',
+                borderRadius: '10px',
+                background: 'rgba(255, 255, 255, 0.02)',
+                border: '1px solid rgba(255, 255, 255, 0.04)',
               }}
             >
               <div
                 style={{
                   fontFamily: 'var(--font-heading)',
-                  fontSize: '26px',
+                  fontSize: 'clamp(20px, 3vw, 26px)',
                   fontWeight: 900,
                   color: '#FFFFFF',
                   lineHeight: 1.1,
@@ -267,7 +311,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenTrialModal }) =>
               <div
                 style={{
                   fontFamily: 'var(--font-heading)',
-                  fontSize: '13px',
+                  fontSize: '12px',
                   fontWeight: 700,
                   color: '#ECE9E1',
                   marginTop: '4px',
@@ -277,7 +321,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenTrialModal }) =>
               </div>
               <div
                 style={{
-                  fontSize: '11px',
+                  fontSize: '10.5px',
                   color: 'rgba(236, 233, 225, 0.65)',
                   marginTop: '2px',
                 }}
@@ -288,20 +332,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenTrialModal }) =>
           ))}
         </motion.div>
       </div>
-
-      <style jsx>{`
-        @media (max-width: 640px) {
-          :global(.hero-action-buttons) {
-            flex-direction: column !important;
-            max-width: 320px !important;
-            margin-left: auto !important;
-            margin-right: auto !important;
-          }
-          :global(.hero-btn) {
-            width: 100% !important;
-          }
-        }
-      `}</style>
     </section>
   );
 };

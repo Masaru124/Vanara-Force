@@ -34,13 +34,15 @@ export const WhyUsSection: React.FC = () => {
               <h2
                 style={{
                   fontFamily: 'var(--font-display)',
-                  fontSize: 'clamp(2.2rem, 4.5vw, 3.6rem)',
+                  fontSize: 'clamp(1.4rem, 4.5vw, 3.6rem)',
                   color: '#FFFFFF',
                   fontWeight: 800,
                   letterSpacing: '-0.02em',
                   textTransform: 'uppercase',
                   margin: 0,
-                  lineHeight: 1.05,
+                  lineHeight: 1.1,
+                  overflowWrap: 'break-word',
+                  wordBreak: 'break-word',
                 }}
               >
                 WHY TRAIN AT <span style={{ color: '#FF5500' }}>VANARA FORCE</span>
@@ -65,8 +67,8 @@ export const WhyUsSection: React.FC = () => {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-            gap: '24px',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 260px), 1fr))',
+            gap: '18px',
           }}
         >
           {WHY_US_DATA.map((item, idx) => {
